@@ -1,0 +1,97 @@
+body {
+    font-family: 'Poppins', sans-serif!important;
+}
+div.cortina {
+    z-index: 2;
+    background-color: rgba(111, 84, 153, 0.85);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+}
+legend {
+    width: 100%;
+    overflow: auto;
+    /*background-color: red;*/
+}
+/**
+ * Estos son estilos para las diferentes resoluciones de pantalla
+ */
+
+/*Para pantallas pequeÃ±as*/
+
+@media screen and (min-width: 360px) {
+
+}
+/*Para pantallas pequeÃ±as*/
+
+@media screen and (min-width: 576px) {
+
+}
+/*Para pantallas medianas*/
+
+@media screen and (min-width: 768px) {
+
+}
+/*Para pantallas largas*/
+
+@media screen and (min-width: 992px) {
+
+}
+/*Para pantallas extra largas*/
+
+@media screen and (min-width: 1200px) {
+
+}
+.login_wrapper {
+    right: 0px;
+    margin: 0px auto;
+    margin-top: 5%;
+    max-width: 350px;
+    position: relative;
+    min-height: 550px;
+}
+
+.login_content {
+    margin: 0 auto;
+    padding: 25px 0 0;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    min-width: 280px;
+}
+
+.btn-purple {
+    color: #fff;
+    background-color: #6F5499;
+    border-color: #6A3E8C;
+}
+.btn-purple:focus, .btn-purple:hover {
+    color: #FFF;
+    background-color: #503D6C;
+}
+
+#fondo{
+    background: #F8FAFC;
+    /*background: -moz-linear-gradient(left, rgba(119, 34, 128, 0.81) 0%, rgba(119, 34, 128, 0.74) 34%, rgba(198, 163, 202, 0.91) 76%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(left, rgba(119, 34, 128, 0.81) 0%, rgba(119, 34, 128, 0.74) 34%, rgba(198, 163, 202, 0.91) 76%, rgba(255, 255, 255, 1) 100%);
+    background: -o-linear-gradient(left, rgba(119, 34, 128, 0.81) 0%, rgba(119, 34, 128, 0.74) 34%, rgba(198, 163, 202, 0.91) 76%, rgba(255, 255, 255, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(119, 34, 128, 0.81) 0%, rgba(119, 34, 128, 0.74) 34%, rgba(198, 163, 202, 0.91) 76%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to right, rgba(119, 34, 128, 0.81) 0%, rgba(119, 34, 128, 0.74) 34%, rgba(198, 163, 202, 0.91) 76%, rgba(255, 255, 255, 1) 100%);*/
+}
+
+.title-page {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: #334165;
+}
+
+.fa-cart-flatbed {
+    color: #1DA8BB;
+}
+
+img[alt="imagen inventario"] {
+    width: 40rem;
+}
