@@ -15,12 +15,12 @@
 					<div class="row py-4 ps-4">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-12">
 							<p class="h3">
-								<a href="{{ route('dashboard') }}"><i class="fa-solid fa-arrow-left"></i></a>&nbsp;Registro de productos
+								<a href="{{ route('dashboard') }}"><i class="fa-solid fa-arrow-left"></i></a>&nbsp;Actualizar producto
 							</p>
 							<form id="form_register">
 								@include('private.products.includes._form-product')
 								<div class="col-12 text-center">
-									<button type="submit" class="btn btn-success btn-md float-right">Registrar</button>
+									<button type="submit" class="btn btn-success btn-md float-right">Actualizar</button>
 								</div>
 							</form>
 						</div>

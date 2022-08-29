@@ -22,11 +22,14 @@
           <div class="d-flex border-start ps-2">
         	<div class="dropdown d-inline-block">
               	<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                	<img class="rounded-full usrImg" src="https://lineone.piniastudio.com/images/avatar/avatar-12.jpg" alt="User Avatar">&nbsp;Dropdown
+                	<img class="rounded-full usrImg" src="https://lineone.piniastudio.com/images/avatar/avatar-12.jpg" alt="User Avatar">&nbsp;
+                    {{ Auth::guard('usrInventario')->user()->nombre.' '.substr(Auth::guard('usrInventario')->user()->apPaterno, 0, 1).'. '.substr(Auth::guard('usrInventario')->user()->apMaterno, 0, 1).'.' }}
               	</a>
                 <div class="dropdown-menu" data-popper-placement="bottom-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="auth-lock-screen.html"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Salir</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}">
+                        <i class="mdi mdi-lock font-size-16 align-middle me-1"></i>&nbsp;Salir
+                    </a>
                 </div>
             </div>
           </div>
@@ -48,26 +51,27 @@
         <ul class="mb-0 ps-0">
             <li class="list-group-item border-bottom">
                 <span class="d-block ps-4 py-3 list-group-item">
-                    <i class="fa-solid fa-circle-user"></i>&nbsp;Carlos
+                    <i class="fa-solid fa-circle-user"></i>&nbsp;
+                    {{ Auth::guard('usrInventario')->user()->nombre.' '.Auth::guard('usrInventario')->user()->apPaterno.' '.Auth::guard('usrInventario')->user()->apMaterno }}
                 </span>
             </li>
             <li class="list-group-item item-offcanvas">
-                <a href="#" class="d-block ps-4 py-3 list-group-item">
+                <a href="{{ route('dashboard') }}" class="d-block ps-4 py-3 list-group-item">
                     <i class="fa-solid fa-house"></i>&nbsp;Inicio
                 </a>
             </li>
             <li class="list-group-item item-offcanvas">
-                <a href="#" class="d-block ps-4 py-3 list-group-item">
+                <a href="{{ route('lista-productos') }}" class="d-block ps-4 py-3 list-group-item">
                     <i class="fa-solid fa-inbox"></i>&nbsp;Bandeja de productos
                 </a>
             </li>
             <li class="list-group-item item-offcanvas">
-                <a href="#" class="d-block ps-4 py-3 list-group-item">
+                <a href="{{ route('registro-productos') }}" class="d-block ps-4 py-3 list-group-item">
                     <i class="fa-solid fa-cubes"></i>&nbsp;Registrar productos
                 </a>
             </li>
             <li class="list-group-item item-offcanvas">
-                <a href="#" class="d-block ps-4 py-3 list-group-item">
+                <a href="{{ route('logout') }}" class="d-block ps-4 py-3 list-group-item">
                     <i class="fa-solid fa-right-from-bracket"></i>&nbsp;Salir
                 </a>
             </li>

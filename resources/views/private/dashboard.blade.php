@@ -1,5 +1,5 @@
 @extends('private.layout.layout')
-@section('title','Inicio')
+@section('title','Panel')
 @section('content')
 	@include('private.includes.navbar')
 	<div class="container-fluid">

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Sistema de Inventario</title>
 
         <!-- Fonts -->
@@ -16,8 +16,6 @@
         {{-- Fontawesome --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/fontawesome.min.css" integrity="sha512-R+xPS2VPCAFvLRy+I4PgbwkWjw1z5B5gNDYgJN5LfzV4gGNeRQyVrY7Uk59rX+c8tzz63j8DeZPLqmXvBxj8pA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        {{-- Jquery --}}
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
         {{-- Estilos propios --}}
         <link rel="stylesheet" href="{{ secure_asset('css/gral_styles.css') }}">
         <link rel="stylesheet" href="{{ secure_asset('css/global_styles.css') }}">
@@ -44,22 +42,22 @@
                     <div class="login_wrapper">
                         <div class="animate form login_form">
                             <section class="login_content">
-                                <form method="POST" id="form_acceso">
+                                <form id="form_acceso" name="form_acceso">
                                     <div class="col-12 mb-5">
                                         <p class="h2">Bienvenido</p>
                                         <p class="h6 text-muted text-register">Por favor inicie sesión para acceder</p>
                                     </div>
                                     <div>
                                         <div class="form-group mb-3">
-                                            <input name="nomUsuario" id="nomUsuario" type="text" placeholder="&#xF4D7;&nbsp;Nombre de usuario" class="form-control" required="true" style="font-family: 'Poppins','bootstrap-icons';">
+                                            <input name="input_usuario" id="input_usuario" type="text" placeholder="&#xF4D7;&nbsp;Nombre de usuario" class="form-control" required="true" style="font-family: 'Poppins','bootstrap-icons';">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <input type="password" name="contrasenia" id="contrasenia" placeholder="&#xF538;&nbsp;Contraseña" class="form-control" required="true" style="font-family: 'Poppins', 'bootstrap-icons';">
+                                            <input type="password" name="input_contrasenia" id="input_contrasenia" placeholder="&#xF538;&nbsp;Contraseña" class="form-control" required="true" style="font-family: 'Poppins', 'bootstrap-icons';">
                                         </div>
                                         <div id="msgLogin" class="my-3"></div>
                                         <div class="form-group">
                                             <div class="d-grid gap-2">
-                                                <button type="submit" class="btn btn-block btn-primary" id="btn_submit">Acceder</button>
+                                                <button type="submit" class="btn btn-block btn-primary" form="form_acceso">Acceder</button>
                                             </div>
                                         </div>
                                         <hr>
@@ -101,7 +99,7 @@
                                         <div id="msgLogin" class="my-3"></div>
                                         <div class="form-group">
                                             <div class="d-grid gap-2">
-                                                <button type="submit" class="btn btn-block btn-primary" id="btn_submit">Registrarse</button>
+                                                <button type="submit" class="btn btn-block btn-primary" form="form_registro">Registrarse</button>
                                             </div>
                                         </div>
                                         <hr>
@@ -126,8 +124,16 @@
             </div>
         </div>
         @include('public.includes.footer')
+        {{-- Jquery --}}
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        {{-- Fontawesome --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js" integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        {{-- Bootstrap --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-        <script src={{ secure_asset('js/index.js') }}></script>
+        {{-- Sweetalert --}}
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        {{-- Script funciones generales --}}
+        <script src="{{ secure_asset('js/gralScript.js') }}?v={{ env('VERSION_CSS_JS') }}"></script>
+        <script src="{{ secure_asset('js/public/login.js') }}?v={{ env('VERSION_CSS_JS') }}"></script>
     </body>
 </html>
