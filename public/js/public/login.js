@@ -2,6 +2,7 @@
 $(document).on('click', '#btnCreateAccount', function(event) {
 	$('#form_registro').css('display', 'inline');
 	$('#form_acceso').css('display', 'none');
+	obtenerPermisos();
 });
 
 $(document).on('click', '#btnLoginAccount', function(event) {
@@ -45,5 +46,73 @@ $(document).on('submit', '#form_acceso', function(event) {
 		$(btnSubmit).prop('disabled', false);
 		$(btnSubmit).html('Acceder');
 	});
-	
 });
+
+/**
+ * Registro de usuario
+ */
+$(document).on('submit', '#form_registro', function(event) {
+	event.preventDefault();
+	var formData = new FormData(this);
+	$.ajax({
+		url: 'registrar-usuario',
+		type: 'POST',
+		dataType: 'json',
+		data: formData,
+        contentType: false,
+        processData: false,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        beforeSend: () => {
+        	$('button[form="form_registro"]').prop('disabled', true);
+        	$('button[form="form_registro"]').html('Registrando sus datos, espere por favor...');
+        }
+	})
+	.done(function(response) {
+		if (response.success) {
+			mixinMessage('¡Registro exitoso!, inicie sesión para acceder', 'success', 'top-end', 1500, true, false, () => {
+				$('#btnLoginAccount').trigger('click');
+			});
+		} else {
+			muestraErrores(response);
+		}
+	})
+	.fail(function() {
+		showErrorMsg();
+	})
+	.always(function() {
+    	$('button[form="form_registro"]').prop('disabled', false);
+    	$('button[form="form_registro"]').html('Registrarse');
+	});
+});
+
+function obtenerPermisos() {
+	$.ajax({
+		url: 'perfil',
+		type: 'GET',
+		dataType: 'json',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+	})
+	.done(function(response) {
+		if (response.success) {
+			$('#permiso').html('');
+			$('#permiso').append(`<option disabled selected value="">&#xF4D7;&nbsp;Permisos</option>`);
+			$.each(response.data, function(index, element) {
+				$('#permiso').append(
+					$('<option>', {
+						value: element.id,
+						text: element.nombrePerfil
+					})
+				);
+			});
+		} else {
+			console.error('No se pudieron obtener el listado de perfiles');
+		}
+	})
+	.fail(function() {
+		showErrorMsg();
+	});
+}

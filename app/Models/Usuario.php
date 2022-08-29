@@ -24,6 +24,7 @@ class Usuario extends Authenticatable
         'usuario',
         'acceso',
         'idPerfil',
+        'contrasenia'
     ];
 
     /**

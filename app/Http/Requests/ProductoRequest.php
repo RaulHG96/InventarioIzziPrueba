@@ -36,6 +36,7 @@ class ProductoRequest extends FormRequest
                 'required_if:isUpdate,1',
                 Rule::in(['Abierto', 'Cerrado'])
             ],
+            'comentarios' => 'required_if:isUpdate,1|max:100',
             'descripcion' => 'required_if:isUpdate,0|max:100'
         ];
     }
@@ -60,6 +61,8 @@ class ProductoRequest extends FormRequest
             'sucursal.numeric' => 'La sucursal del producto no es correcta',
             'estado.required_if' => 'El estado del producto es requerido',
             'estado.in' => 'El estado del producto no es correcto',
+            'comentarios.required_if' => 'El comentario del producto es requerido',
+            'comentarios.max' => 'El tamaño máximo del comentario es de 100 caracteres',
             'descripcion.required_if' => 'La descripción del producto es requerida',
             'descripcion.max' => 'El tamaño máximo de la descripción es de 100 caracteres'
         ];

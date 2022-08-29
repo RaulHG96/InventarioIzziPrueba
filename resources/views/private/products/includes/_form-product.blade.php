@@ -34,9 +34,13 @@
 		@if(isset($isUpdate) && $isUpdate)
 		<div class="form-group col-lg-4 col-md-4 col-sm-12 mb-3">
 			<label for="estado">Estado</label>
-			<select class="form-select" id="estado" name="estado">
+			<select class="form-select" id="estado" name="estado" required>
 				<option value="" selected disabled>Seleccionar estado de producto</option>
 			</select>
+		</div>
+		<div class="form-group col-lg-12 col-md-12 col-sm-12 mb-3">
+			<label for="comentarios">Comentarios</label>
+			<textarea name="comentarios" id="comentarios" maxlength="100" rows="5" class="form-control" required></textarea>
 		</div>
 		@endif
 	</div>

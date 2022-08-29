@@ -15,12 +15,15 @@
 					<div class="row py-4 ps-4">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-12">
 							<p class="h3">
-								<a href="{{ route('dashboard') }}"><i class="fa-solid fa-arrow-left"></i></a>&nbsp;Registro de productos
+								@if(Auth::guard('usrInventario')->user()->idPerfil == 1)
+								<a href="{{ route('lista-productos') }}"><i class="fa-solid fa-arrow-left"></i></a>&nbsp;
+								@endif
+								Registro de productos
 							</p>
 							<form id="form_register">
 								@include('private.products.includes._form-product')
 								<div class="col-12 text-center">
-									<button type="submit" class="btn btn-success btn-md float-right">Registrar</button>
+									<button type="submit" class="btn btn-success btn-md float-right" form="form_register">Registrar</button>
 								</div>
 							</form>
 						</div>

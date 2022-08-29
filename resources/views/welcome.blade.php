@@ -63,7 +63,7 @@
                                         <hr>
                                         <div class="separator" align="center">
                                             <p class="change_link">¿No tienes una cuenta?<p>
-                                            <a href="javascript:void();" id="btnCreateAccount">Crear cuenta</a>
+                                            <a href="javascript:void(0);" id="btnCreateAccount">Crear cuenta</a>
                                         </div>                                    
                                     </div>
                                 </form>
@@ -86,15 +86,11 @@
                                             <input name="nomUsuario" id="nomUsuario" type="text" placeholder="&#xF4D7;&nbsp;Nombre de usuario" class="form-control" required="true" style="font-family: 'Poppins','bootstrap-icons';">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <select class="form-select" placeholder="&#xF4D7;&nbsp;Permisos" required="true" style="font-family: 'Poppins','bootstrap-icons';">
-                                                <option disabled selected>&#xF4D7;&nbsp;Permisos</option>
+                                            <select id="permiso" name="permiso" class="form-select" placeholder="&#xF4D7;&nbsp;Permisos" required="true" style="font-family: 'Poppins','bootstrap-icons';">
                                             </select>
                                         </div>
                                         <div class="form-group mb-3">
                                             <input type="password" name="contrasenia" id="contrasenia" placeholder="&#xF538;&nbsp;Contraseña" class="form-control" required="true" style="font-family: 'Poppins', 'bootstrap-icons';">
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <input type="password" name="confimaContrasenia" id="confimaContrasenia" placeholder="&#xF538;&nbsp;Confirmar contraseña" class="form-control" required="true" style="font-family: 'Poppins', 'bootstrap-icons';">
                                         </div>
                                         <div id="msgLogin" class="my-3"></div>
                                         <div class="form-group">
@@ -105,7 +101,7 @@
                                         <hr>
                                         <div class="separator" align="center">
                                             <p class="change_link">¿Ya tienes una cuenta?<p>
-                                            <a href="javascript:void();" id="btnLoginAccount">Iniciar sesión</a>
+                                            <a href="javascript:void(0);" id="btnLoginAccount">Iniciar sesión</a>
                                         </div>                                    
                                     </div>
                                 </form>

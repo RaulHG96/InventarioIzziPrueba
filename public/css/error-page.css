@@ -1,0 +1,10 @@
+.number-error{
+	font-size: 8rem;
+	font-weight: bold;
+	color: rgb(81,86,190);
+}
+
+.message-error{
+	font-size: 2rem;
+	font-weight: bold;
+}

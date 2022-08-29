@@ -14,7 +14,7 @@
 				<div class="container">
 					<div class="row py-4 ps-4">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-							<p class="h3">Lista de productos</p>
+							<p class="h3">Bandeja de productos</p>
 							<div id="wrapper"></div>
 						</div>
 					</div>
@@ -24,17 +24,6 @@
 	</div>
 	@section('script')
 		<script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
-		<script>
-			new gridjs.Grid({
-			  columns: ["Name", "Email", "Phone Number"],
-			  data: [
-			    ["John", "john@example.com", "(353) 01 222 3333"],
-			    ["Mark", "mark@gmail.com", "(01) 22 888 4444"],
-			    ["Eoin", "eoin@gmail.com", "0097 22 654 00033"],
-			    ["Sarah", "sarahcdd@gmail.com", "+322 876 1233"],
-			    ["Afshin", "afshin@mail.com", "(353) 22 87 8356"]
-			  ]
-			}).render(document.getElementById("wrapper"));
-		</script>	
+		<script src="{{ secure_asset('js/private/ListProductsScript.js') }}"></script>
 	@endsection
 @endsection

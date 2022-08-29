@@ -34,7 +34,11 @@ function mixinMessage(title = '', icon = 'success', position = 'top-end', timer 
 function showErrorMsg() {
 	mixinMessage(msjError, 'error', 'top-end', 2000, true, false);
 }
-
+/**
+ * Muestra los errores de validación de lado de servidor
+ * @param  {JSON} data [JSON con el arreglo de errores]
+ * @param  {String} url  [Url para redirección]
+ */
 function muestraErrores(data, url = '') {
 	var html = '';
 	$.each(data.error, function(index, val) {

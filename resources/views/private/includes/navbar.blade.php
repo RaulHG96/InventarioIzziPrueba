@@ -3,7 +3,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
             <i class="fa-solid fa-bars" style="color: #4F46E5;"></i>
         </button>
-        <a class="navbar-brand mx-auto py-0" href="#">
+        <a class="navbar-brand mx-auto py-0" href="{{ route('dashboard') }}">
             <div class="col-12 py-0 px-2 d-flex py-2">
                 <span>
                     <i class="fa-solid fa-cart-flatbed fa-2x"></i>
@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              	<a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              	<a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">Inicio</a>
             </li>
           </ul>
           <div class="d-flex border-start ps-2">
@@ -36,7 +36,6 @@
         </div>
     </div>
 </nav>
-
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
@@ -60,16 +59,20 @@
                     <i class="fa-solid fa-house"></i>&nbsp;Inicio
                 </a>
             </li>
+            @if(Auth::guard('usrInventario')->user()->idPerfil == 1)
             <li class="list-group-item item-offcanvas">
                 <a href="{{ route('lista-productos') }}" class="d-block ps-4 py-3 list-group-item">
                     <i class="fa-solid fa-inbox"></i>&nbsp;Bandeja de productos
                 </a>
             </li>
+            @endif
+            @if(Auth::guard('usrInventario')->user()->idPerfil == 2)
             <li class="list-group-item item-offcanvas">
                 <a href="{{ route('registro-productos') }}" class="d-block ps-4 py-3 list-group-item">
                     <i class="fa-solid fa-cubes"></i>&nbsp;Registrar productos
                 </a>
             </li>
+            @endif
             <li class="list-group-item item-offcanvas">
                 <a href="{{ route('logout') }}" class="d-block ps-4 py-3 list-group-item">
                     <i class="fa-solid fa-right-from-bracket"></i>&nbsp;Salir
