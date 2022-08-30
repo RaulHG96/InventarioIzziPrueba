@@ -11,7 +11,7 @@ Versiones utilizadas para el proyecto:
 
 La base de datos ya está en las migraciones del Backend (Laravel), pero también se sube script de BD de con las pruebas.
 
-**VARIABLES DE ENTORNO ANGULAR**
+**CREDENCIALES DE ACCESO**
 
 *Administrador*
 `usuario`: raul.hidalgo
